@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Professional {
+  id           String   @id @default(uuid())
+  firstName    String
+  lastName     String
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+
+  verifiedAt String?
+
+  resetPasswordToken         String?
+  resetPasswordExpiresAt     DateTime?
+  verificationToken          String    @unique
+  verificationTokenExpiresAt DateTime
+
+  specialty   Specialty? @relation(fields: [specialtyId], references: [id])
+  specialtyId Int?
+
+  @@map("professionals")
+}
+
+model Specialty {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  services      Service[]
+  professionals Professional[]
+
+  @@map("specialties")
+}
+
+model Service {
+  id           Int    @id @default(autoincrement())
+  name         String @unique
+  timeEstimate Int
+  price        Int?
+
+  specialty   Specialty? @relation(fields: [specialtyId], references: [id])
+  specialtyId Int?
+
+  @@map("services")
+}

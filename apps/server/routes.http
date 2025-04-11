@@ -1,0 +1,21 @@
+POST http://localhost:8000/api/v1/auth/sign-up
+Content-Type: application/json
+
+{
+  "email": "andres.dosantosbritoamaral@gmail.com",
+  "password": "dB@67oiu",
+  "firstName": "Andres",
+  "lastName": "dos Santos"
+}
+
+###
+
+POST http://localhost:8000/api/v1/specialty/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMTBlMDA5Ni0yY2VjLTQ3NzktYWE2ZC03MWM4OTQzZTljMzAiLCJpYXQiOjE3NDQzMDYyMTEsImV4cCI6MTc0NDkxMTAxMX0.ynH_hNXsAOvIV6Mv3J-FyDWOOkapow0Hbyr81FB51R4
+
+{
+  "name": "Dentista"
+}
+
+
