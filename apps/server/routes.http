@@ -10,12 +10,5 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:8000/api/v1/specialty/
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMTBlMDA5Ni0yY2VjLTQ3NzktYWE2ZC03MWM4OTQzZTljMzAiLCJpYXQiOjE3NDQzMDYyMTEsImV4cCI6MTc0NDkxMTAxMX0.ynH_hNXsAOvIV6Mv3J-FyDWOOkapow0Hbyr81FB51R4
-
-{
-  "name": "Dentista"
-}
-
-
+GET http://localhost:8000/api/v1/specialty
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9mZXNzaW9uYWxJZCI6IjQ2OTYxNjA4LTNiZmQtNDA5YS04NjBlLWRhZjBiMTg2ZjdiMSIsImlhdCI6MTc0NDMxNDYwNiwiZXhwIjoxNzQ0OTE5NDA2fQ.jtWgFGr2wmnBgeYvMjS51cWdYyF2SUNV2TgM26niNvY;

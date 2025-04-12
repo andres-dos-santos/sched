@@ -30,19 +30,19 @@ export function RegisterFormInstructions() {
 
 	return (
 		<div className="flex items-center gap-2.5 mb-10">
-			<p className="text-[11px] font-medium text-zinc-700 dark:text-white">
-				<div className="flex items-center">
-					{Step[pathname] > 1 && (
-						<Link href={GoBackLink[pathname]}>
-							<ArrowLeft className="size-3.5 mr-2.5" />
-						</Link>
-					)}
+			<div className="flex items-center">
+				{Step[pathname] > 1 && (
+					<Link href={GoBackLink[pathname]}>
+						<ArrowLeft className="size-3.5 mr-2.5" />
+					</Link>
+				)}
+				<p className="text-[11px] font-medium text-zinc-700 dark:text-white">
 					<span className="bg-yellow-500/50 dark:bg-yellow-800/50 p-1">
 						{Step[pathname]} de 4
 					</span>{' '}
 					<span className="mx-5">/</span> {Message[pathname]}
-				</div>
-			</p>
+				</p>
+			</div>
 		</div>
 	)
 }

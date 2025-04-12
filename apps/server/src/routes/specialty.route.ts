@@ -16,4 +16,12 @@ export function specialtyRoutes(app: FastifyInstance) {
 		},
 		specialtyController.create,
 	)
+
+	app.get(
+		'',
+		{
+			schema: specialtySchema.list,
+		},
+		specialtyController.list,
+	)
 }

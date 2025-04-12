@@ -16,19 +16,21 @@ async function post<B>(path: string, body: B) {
 	return { success: response.ok, data, message }
 }
 
-async function get(path: string) {
+interface Response<D> {
+	success: boolean
+	data: D | null
+	message: string
+}
+
+async function get<D>(path: string) {
 	const response = await fetch(`${baseUrl}${path}`, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-		},
 		credentials: 'include',
 	})
 
 	const data = response.ok ? await response.json() : null
-	const message = { status: response.status, text: response.statusText }
+	console.log('data', data)
 
-	return { success: response.ok, data, message }
+	return data
 }
 
 export const api = {
