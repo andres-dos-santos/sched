@@ -16,8 +16,11 @@ async function create(
 	const professionalId = req.professionalId
 
 	const specialty = await prisma.specialty.create({
-		data: { name, id },
 		include: { professionals: { where: { id: professionalId } } },
+		data: {
+			name,
+			id,
+		},
 	})
 
 	rep.status(201).send(
@@ -30,7 +33,7 @@ async function create(
 }
 
 async function list(req: FastifyRequest, rep: FastifyReply) {
-	const specialties = await prisma.specialty.findMany()
+	const specialties = await prisma.specialty.findMany({})
 
 	rep.status(200).send(
 		reply({

@@ -39,26 +39,28 @@ const list = {
 	response: {
 		200: {
 			type: 'object',
-			description: 'Success response',
 			properties: {
-				success: { type: 'string', example: true },
-				message: {
-					type: 'string',
-					example: 'Specialty created successfully',
-				},
+				success: { type: 'boolean' },
+				message: { type: 'string' },
 				data: {
 					type: 'object',
 					properties: {
-						specialty: {
-							type: 'object',
-							properties: {
-								id: { type: 'string', example: 'some uuid' },
-								name: { type: 'string', example: 'Dentista' },
+						specialties: {
+							type: 'array',
+							items: {
+								type: 'object',
+								properties: {
+									id: { type: 'integer' },
+									name: { type: 'string' },
+								},
+								required: ['id', 'name'],
 							},
 						},
 					},
+					required: ['specialties'],
 				},
 			},
+			required: ['success', 'message', 'data'],
 		},
 	},
 }
